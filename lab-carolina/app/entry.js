@@ -28,6 +28,10 @@ function CowsayController($log){
     this.history.push(this.prevText);
   };
 
+  this.undo = function(){
+    this.prevText = this.history.pop();
+  };
+  
   this.helloClick = function(input){
     $log.log(input);
   };

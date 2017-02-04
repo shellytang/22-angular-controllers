@@ -10,10 +10,9 @@
         <select ng-model="cowsayCtrl.currentCow">
           <option ng-repeat="list in cowsayCtrl.list" value={{list}}>{{list}}</option>
         </select>
-
         <input type="text" ng-model="cowsayCtrl.text">
-
         <button type="submit">Make me speak!</button>
+        <button type="button" ng-click='cowsayCtrl.undo()'>Take it back!</button>
 
       </form>
       <pre>  {{cowsayCtrl.updateCow(cowsayCtrl.text)}}</pre>
