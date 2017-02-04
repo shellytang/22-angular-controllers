@@ -15,11 +15,11 @@ function CowsayController($log){
 
   cowsay.list((err, list) => {
     this.list = list;
-    this.currentCow = this.list[0];
+    this.currentCow = 'kitty';
   });
 
   this.updateCow = function(input){
-    return '\n' + cowsay.think({text: input || 'What am I thinking about'});
+    return '\n' + cowsay.think({text: input || 'What am I thinking about', f: this.currentCow});
   };
 
   this.saveText = function(input){
