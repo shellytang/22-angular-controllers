@@ -10,8 +10,9 @@ const demoApp = angular.module('demoApp', []);
 demoApp.controller('CowsayController', ['$log', CowsayController]);
 
 function CowsayController($log){
-  this.title = 'Moooooo';
+  this.title = 'Make us speak!';
   this.history = [];
+  console.log(this.history);
 
   cowsay.list((err, list) => {
     this.list = list;
@@ -22,9 +23,9 @@ function CowsayController($log){
     return '\n' + cowsay.think({text: input || 'What am I thinking about', f: this.currentCow});
   };
 
-  this.saveText = function(input){
-    this.currText = this.updateCow(input);
-    this.history.push(this.currText);
+  this.currText = function(input){
+    this.prevText = this.updateCow(input);
+    this.history.push(this.prevText);
   };
 
   this.helloClick = function(input){
