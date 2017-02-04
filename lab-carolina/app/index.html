@@ -16,7 +16,7 @@
 
       </form>
       <pre>  {{cowsayCtrl.updateCow(cowsayCtrl.text)}}</pre>
-      <h3>What you've said</h3>
+      <h3 ng-show="cowsayCtrl.prevText">What you've said</h3>
       <pre ng-show="cowsayCtrl.prevText">{{cowsayCtrl.prevText}}</pre>
     </section>
 
