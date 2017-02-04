@@ -6,7 +6,12 @@
   <body>
     <section ng-controller="CowsayController as cowsayCtrl">
       <h1>{{cowsayCtrl.title}}</h1>
+      <form ng='cowsayCtrl.currText(cowsayCtrl.text)'>
+
         <input type="text" ng-model="cowsayCtrl.text">
+        <select ng-model="cowsayCtrl.currentCow">
+          <option ng-repeat="list in cowsayCtrl.list" value={{list}}> {{list}} </option>
+        </select>
         <button ng-click="cowsayCtrl.helloClick(cowsayCtrl.text)">Click me!</button>
 
         <pre>
