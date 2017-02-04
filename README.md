@@ -14,7 +14,7 @@
   * `.gitignore`
   * `package.json`
     * create an npm `watch` script for running `webpack-dev-server --inline --hot`
-    * create an npm `lint` script for linting your JS with `eslint`
+    * This will require that you install `webpack-dev-server`
   * **ignore the build directory**
   * `webpack.config.js`
 
