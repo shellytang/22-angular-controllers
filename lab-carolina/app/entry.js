@@ -12,7 +12,6 @@ demoApp.controller('CowsayController', ['$log', CowsayController]);
 function CowsayController($log){
   this.title = 'Make us speak!';
   this.history = [];
-  console.log(this.history);
 
   cowsay.list((err, list) => {
     this.list = list;
@@ -31,7 +30,7 @@ function CowsayController($log){
   this.undo = function(){
     this.prevText = this.history.pop();
   };
-  
+
   this.helloClick = function(input){
     $log.log(input);
   };
