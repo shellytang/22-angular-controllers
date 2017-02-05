@@ -4,7 +4,7 @@
     <title> Cowsay Client </title>
   </head>
   <body>
-    <section ng-controller="CowsayController">
+    <section ng-controller="CowsayController as cowsayCtrl">
     <h1> {{cowsayCtrl.title}} </h1>
       <input type="text" ng-model="cowsayCtrl.text">
       <button ng-click="cowsayCtrl.helloClick(cowsayCtrl.text)"> click me for spam </button>
@@ -14,7 +14,7 @@
       </pre>
     </section>
 
-    <section ng-controller="CowsayController">
+    <section ng-controller="CowsayController as cowsayCtrl">
     <h1> {{cowsayCtrl.title}} </h1>
       <input type="text" ng-model="cowsayCtrl.coolbeans">
       <p> {{cowsayCtrl.coolbeans}} </p>
