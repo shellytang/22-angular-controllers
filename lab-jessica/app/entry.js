@@ -16,18 +16,24 @@ const demoApp = angular.module('demoApp', []);
 demoApp.controller('CowsayController', [ '$log', CowsayController]);
 
 function CowsayController($log){
+  this.history = [];
+
+  cowsay.list((err, list) => {
+    this.cowfiles = list;
+  });
+
   $log.debug('init CowsayController');
 
   this.title = 'Moooooo';
 
-  this.updateCow = function(input){
+  this.updateCow = function(message, type){
     $log.debug('cowsayCtrl.updateCow()');
-    return '\n' + cowsay.say({text: input || 'gimme something to say'});
+    return '\n' + cowsay.say({text: message || 'gimme something to say', f: type});
   };
 
-  this.helloClick = function(input){
-    $log.debug('cowsayCtrl.helloClick()');
-    $log.log(input);
+  this.submit = function(message, type) {
+    $log.debug('logging history', this.history);
+    this.history.push({text: message, f: type});
   };
 
 }
