@@ -10,14 +10,14 @@
         <select ng-model="cowsayCtrl.currentCow">
           <option ng-repeat="list in cowsayCtrl.list" value={{list}}>{{list}}</option>
         </select>
-        <input type="text" ng-model="cowsayCtrl.text">
+        <input type="text" placeholder="Input text here" ng-model="cowsayCtrl.text">
         <button type="submit">Make me speak!</button>
-        <button type="button" ng-click='cowsayCtrl.undo()'>Take it back!</button>
-
+        <!-- <button type="button" ng-click='cowsayCtrl.undo()'>Take it back!</button> -->
       </form>
-      <pre>  {{cowsayCtrl.updateCow(cowsayCtrl.text)}}</pre>
-      <h3 ng-show="cowsayCtrl.prevText">What you've said</h3>
-      <pre ng-show="cowsayCtrl.prevText">{{cowsayCtrl.prevText}}</pre>
+        <pre> {{cowsayCtrl.updateCow(cowsayCtrl.text)}}</pre>
+        <h1 id='secondH1' ng-show="cowsayCtrl.prevText">What you've said</h1>
+        <button id="undoButton" ng-show="cowsayCtrl.prevText" type="button" ng-click='cowsayCtrl.undo()'>Take it back!</button>
+        <pre ng-show="cowsayCtrl.prevText">{{cowsayCtrl.prevText}}</pre>
     </section>
 
   </body>

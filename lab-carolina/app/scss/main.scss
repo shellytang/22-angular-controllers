@@ -1,5 +1,37 @@
-$app-bg: #5f9ea0;
+$app-bg: #202020;
+$text-color: #8D8060;
 
-body {
+body, form {
   background-color: $app-bg;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: $text-color;
+}
+
+h1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 150%;
+  color: #ffffff;
+}
+
+div {
+  border-top: 1px white solid;
+}
+
+pre {
+  font-size: 130%;
+  background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;;
+}
+
+#secondH1 {
+  margin-top: 15%;
+}
+
+#undoButton {
+  margin-left: 40%;
 }
