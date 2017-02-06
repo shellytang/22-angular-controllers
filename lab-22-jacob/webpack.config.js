@@ -1,13 +1,13 @@
 let HTMLplugin = require('html-webpack-plugin');
 module.exports = {
-  entry: './app/entry.js', //same as saying require('./app/index.js')  --> where our very first JS file is.
+  entry: `${__dirname}/app/entry.js`, //same as saying require('./app/index.js')  --> where our very first JS file is.
   output: {
     filename: 'bundle.js', //gonna make a file called bundle.
-    path: './build' //in a directory called build....
+    path: `${__dirname}/build` //in a directory called build....
   },
   plugins: [
     new HTMLplugin({
-      template: './app/index.html'
+      template: `${__dirname}/app/index.html`
     })
   ],
   module: {

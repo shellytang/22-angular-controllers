@@ -1,25 +1,34 @@
 <!DOCTYPE html>
-<html ng-app="demoApp"> <!-- this declare the page an angular app page. it will apply to everything below (within </>)-->
+<html ng-app="demoApp">
   <head>
   <title>Cowsay Client</title>
   </head>
   <body>
-    <section ng-controller="CowsayController as cowsayCtrl">  <!--A controller is like a handlebars template -->
-      <h1> {{cowsayCtrl.title}}</h1> <!-- below is an instance of the cowsay controller -->
+    <section ng-controller="CowsayController as cowsayCtrl">
+      <form>
+        <label for="dropdown">SELECT A COWFILE</label>
+        <select ng-model = "cowsayCtrl.currentCow" name="dropdown" id="dropdown">
+          <option ng-repeat="cowfile in cowsayCtrl.list" value ="{{cowfile}}">{{cowfile}}</option>
+        </select>
+      </form>
+      <button ng-click="cowsayCtrl.undo()">REMOVE LAST COWFILE</button>
+      <form ng-submit = "cowsayCtrl.submit(cowsayCtrl.text)">
+        Click "SAVE" to save what the cow says!
       <input type="text" ng-model="cowsayCtrl.text">
-      <button ng-click="cowsayCtrl.helloClick()">Click me for spam</button>
-      <pre> <!--whenever we hit this button, it will call this function, and update variable up there-->
+      <input type="submit" id="submit" value="SAVE">
+      <pre>
         {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
       </pre>
-    </section>
-    <section ng-controller="CowsayController as cowsayCtrl">
-      <h1> {{cowsayCtrl.title}} </h1>
-      <form ng-submit = "cowsayCtrl.submit()">
-        Click "Submit" to save what the cow says!
-      <input type="text" ng-model="cowsayCtrl.text" name = "cowtext">
-      <input type="submit" id="submit" value="submit">
-      <pre>List of Cow utterings:{{cowsayCtrl.list}}</pre>
+      <hr><br />
+      <h1 id = "historyHead">HERE IS YOUR COWFILE HISTORY</h1>
+      <div class = "history" ng-repeat="animal in cowsayCtrl.history" value="{{animal}}">
+      <pre>
+        {{animal}}
+      </pre>
+    </div>
     </form>
-    </section>
-  <script type="text/javascript" src="bundle.js"></script></body>
+      <p ng-hide="cowsayCtrl.history"> Waiting for yout to speak </p>
+  </section>
+  <script type="text/javascript" src="bundle.js"></script>
+</body>
 </html>
