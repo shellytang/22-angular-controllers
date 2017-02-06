@@ -1,7 +1,10 @@
 // @import "reset";
 //the above will concatenate the files
-$app-bg: #7affa7;
+$app-bg: cornflowerblue;
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: $app-bg;
 }

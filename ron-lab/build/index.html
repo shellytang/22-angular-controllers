@@ -4,23 +4,9 @@
     <title> Cowsay Client </title>
   </head>
   <body>
-    <!-- <nav ng-controller="NavController as navCtrl">
-      <i class="fa fa-low-vision"> </i>
-      <ul>
-        <li ng-repeat="navItem in navCtrl.routes">
-          <a ng-href="{{navItem.url}}"> {{navItem.name}} </a>
-        </li>
-      </ul>
-    </nav> -->
-
-    <section
-      ng-controller="CowsayController as cowsayCtrl"
-      ng-init="cowsayCtrl.currentCow = 'doge'">
+    <section ng-controller="CowsayController as cowsayCtrl" ng-init="cowsayCtrl.currentCow = 'turkey'">
       <h1> {{cowsayCtrl.title}} </h1>
-      <form ng-submit="cowsayCtrl.speak(cowsayCtrl.text)"
-        novalidate
-        name="cowsayForm"
-        ng-class="{'app-red': cowsayForm.$invalid}">
+      <form ng-submit="cowsayCtrl.speak(cowsayCtrl.text)" novalidate name="cowsayForm" ng-class="{'app-red': cowsayForm.$invalid}">
         <input type="text" ng-model="cowsayCtrl.text" required ng-minlength="4">
         <select ng-model="cowsayCtrl.currentCow">
           <option ng-repeat="cowfile in cowsayCtrl.cowfiles" value="{{cowfile}}">
@@ -33,7 +19,6 @@
       <pre>
          {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
       </pre>
-
       <pre ng-show="cowsayCtrl.spoken">
         {{cowsayCtrl.spoken}}
       </pre>
