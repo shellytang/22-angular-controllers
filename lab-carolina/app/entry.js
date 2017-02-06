@@ -28,6 +28,7 @@ function CowsayController($log){
   };
 
   this.undo = function(){
+    this.history.pop();
     this.prevText = this.history.pop();
   };
 
