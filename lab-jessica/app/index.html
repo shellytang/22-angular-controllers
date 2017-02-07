@@ -1,40 +1,40 @@
 <!DOCTYPE html>
-<html ng-app="demoApp">
+<html ng-app="cowsayApp">
   <head>
-    <title> Cowsay Client </title>
+    <title>Cowsay Fun!</title>
   </head>
   <body>
+    <main ng-controller="CowsayController as cowsayCtrl">
 
-    <section ng-controller="CowsayController as cowsayCtrl">
+      <section>
+        <h1>{{cowsayCtrl.title}}</h1>
+        <form ng-submit="cowsayCtrl.save()">
+          <label>What would you like me to say?</label>
+          <input type="text" ng-model="cowsayCtrl.text">
+          <label>Who would you like me to be?</label>
+          <select ng-model="cowsayCtrl.cowfile">
+            <option ng-repeat="option in cowsayCtrl.cowfiles">{{option}}</option>
+          </select>
+          <button type="submit">SAVE ME</button>
+        </form>
+      </section>
 
-      <h1> {{cowsayCtrl.title}} </h1>
-      <p>New Section</p>
-      <!-- this should save the current state of the cow -->
-      <form ng-submit="cowsayCtrl.submit(cowsayCtrl.text, cowsayCtrl.cowFile)">
-        <label for="cowsayText"> What would you like your cow to say? </label>
-        <input type="text" id="cowsayText" ng-model="cowsayCtrl.text">
-        <label for="cowfileSelect"> Select a CowFile: </label>
-        <select ng-model="cowsayCtrl.cowFile" id="cowfileSelect">
-          <option ng-repeat="option in cowsayCtrl.cowfiles">{{option}}</option>
-        </select>
-        <button type="submit">Save</button>
-      </form>
+      <section>
+        <h1>Preview of Current Selection</h1>
+        <pre>
+          {{cowsayCtrl.updateCow(cowsayCtrl.text, cowsayCtrl.cowfile)}}
+        </pre>
+      </section>
 
-      <pre>
-        {{cowsayCtrl.updateCow(cowsayCtrl.text, cowsayCtrl.cowFile)}}
-      </pre>
+      <!-- <section ng-show="cowsayCtrl.history[0]"> -->
+      <section>
+        <h1>Last Saved Cowfile</h1>
+        <pre>
+          {{cowsayCtrl.lastSaved}}
+        </pre>
+        <button type="button" ng-click="cowsayCtrl.undo()">Undo</button>
+      </section>
+    </main>
 
-      <!-- should populate the second pre tag with the current pre tags state -->
-      <button ng-click="cowsayCtrl.show()">Show</button>
-      <!-- should show prev content -->
-      <button ng-click="cowsayCtrl.reset()">Undo</button>
-
-      <!-- <pre ng-show="cowsayCtrl.history[0]"> -->
-      <pre>
-        {{cowsayCtrl.updateCow(cowsayCtrl.currText)}}
-      </pre>
-
-
-    </section>
-
+  </body>
 </html>
