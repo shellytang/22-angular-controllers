@@ -10,8 +10,8 @@
     "build": "webpack",
     "watch": "webpack-dev-server --inline --hot",
     "lint": "eslint *.js",
-    "test-watch": "./node_modules/karma/bin/karma start",
-    "test": "./node_modules/karma/bin/karma start --single-run"
+    "test-watch": "karma start",
+    "test": "karma start --single-run"
   },
   "dependencies": {
     "angular": "^1.6.1",
