@@ -4,6 +4,7 @@
   <title>Cowsay Client</title>
   </head>
   <body>
+    <h1 class = "header">Cows say the Darndest Things</h1>
     <section ng-controller="CowsayController as cowsayCtrl">
       <form>
         <label for="dropdown">SELECT A COWFILE</label>
@@ -13,16 +14,17 @@
       </form>
       <button ng-click="cowsayCtrl.undo()">REMOVE LAST COWFILE</button>
       <form ng-submit = "cowsayCtrl.submit(cowsayCtrl.text)">
-        Click "SAVE" to save what the cow says!
+        You animal Sez:
       <input type="text" ng-model="cowsayCtrl.text">
-      <input type="submit" id="submit" value="SAVE">
-      <pre>
+      <input type="submit" id="submit" value="SAVE TO HISTORY">
+      <h3>PREVIEW</h3>
+      <pre id = "viewCow">
         {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
       </pre>
       <hr><br />
       <h1 id = "historyHead">HERE IS YOUR COWFILE HISTORY</h1>
       <div class = "history" ng-repeat="animal in cowsayCtrl.history" value="{{animal}}">
-      <pre>
+      <pre ng-show="cowsayCtrl.history">
         {{animal}}
       </pre>
     </div>

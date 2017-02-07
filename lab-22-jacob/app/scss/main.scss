@@ -1,9 +1,27 @@
 // @import "reset" - this is like a css require
 
-$chartreuse-cow: #99FF00;
+$black: #000000;
 $brown: #BC8F8F;
 
 body {
-  color: $chartreuse-cow;
+  color: $black;
   background-color: $brown;
+}
+
+
+.header {
+  text-align: center;
+}
+
+.history {
+  display: inline-block;
+  padding: 1em;
+  max-width: 100%;
+}
+
+
+#viewCow {
+  border-style: groove;
+  position: relative;
+  max-width: 40%
 }

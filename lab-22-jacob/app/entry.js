@@ -32,9 +32,9 @@ function CowsayController($log) { //angular is taking care of dependency injecti
     return self.history;
   };
   self.undo = function() {
-    this.history.pop();
+    this.history.pop()
   };
-}
+};
 
 
 self.displayAnimal = function(animal) {
