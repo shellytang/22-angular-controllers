@@ -34,8 +34,8 @@ describe('testing cowsayCtrl', function(){
 
   });
 
-  describe('testing updateCow()', () => {
-    it('should return a kitty thinking hi', () => {
+  describe('testing methods', () => {
+    it('should test updateCow() and return a kitty thinking hi', () => {
       let example = '\n' + cowsay.think({text: 'hi', f: this.cowsayCtrl.currentCow});
       let result = this.cowsayCtrl.updateCow('hi');
       expect(result).toEqual(example);
@@ -47,6 +47,16 @@ describe('testing cowsayCtrl', function(){
       expect(this.cowsayCtrl.prevText).toEqual(example);
       expect(this.cowsayCtrl.history[0]).toEqual(example);
     });
+
+    it('tests undo()', () => {
+      let example = '\n' + cowsay.think({text: 'hi', f: this.cowsayCtrl.currentCow});
+      this.cowsayCtrl.currText('hi');
+      this.cowsayCtrl.currText('sup');
+      this.cowsayCtrl.undo();
+      expect(this.cowsayCtrl.prevText).toEqual(example);
+      expect(this.cowsayCtrl.history.length).toEqual(0);
+    });
+
 
   });
 
