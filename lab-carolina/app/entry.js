@@ -31,9 +31,9 @@ function CowsayController($log){
     this.history.pop();
     this.prevText = this.history.pop();
   };
-
-  this.helloClick = function(input){
-    $log.log(input);
-  };
+  // 
+  // this.helloClick = function(input){
+  //   $log.log(input);
+  // };
 
 }
