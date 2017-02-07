@@ -14,7 +14,7 @@ const cowsayApp = angular.module('cowsayApp', []);
 cowsayApp.controller('CowsayController', [ '$log', CowsayController]);
 
 function CowsayController($log){
-  this.title = 'Cowsay Aniaml Fun!';
+  this.title = 'Cowsay Animal Fun!';
   this.history = [];
 
   cowsay.list((err, list) => {
@@ -27,14 +27,14 @@ function CowsayController($log){
 
   this.save = function() {
     this.history.push(this.updateCow(this.text, this.cowfile));
-    this.lastSaved = this.history[this.history.length-1];
-    $log.debug('LAST SAVE', this.lastSaved);
+    this.lastSave = this.history[this.history.length-1];
+    $log.debug('LAST SAVE', this.lastSave);
   };
 
   this.undo = function() {
     this.history.pop();
-    this.lastSaved = this.history[this.history.length-1];
-    $log.debug('LAST SAVE', this.lastSaved);
+    this.lastSave = this.history[this.history.length-1];
+    $log.debug('LAST SAVE', this.lastSave);
   };
 
 }
