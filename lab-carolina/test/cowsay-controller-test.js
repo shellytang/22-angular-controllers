@@ -41,6 +41,13 @@ describe('testing cowsayCtrl', function(){
       expect(result).toEqual(example);
     });
 
+    it('tests currText()', () => {
+      let example = '\n' + cowsay.think({text: 'hi', f: this.cowsayCtrl.currentCow});
+      this.cowsayCtrl.currText('hi');
+      expect(this.cowsayCtrl.prevText).toEqual(example);
+      expect(this.cowsayCtrl.history[0]).toEqual(example);
+    });
+
   });
 
 });
