@@ -28,6 +28,18 @@ describe('testing cowsayCtrl', function(){
       });
     });
 
+    it('should return kitty as currentCow', () => {
+      expect(this.cowsayCtrl.currentCow).toEqual('kitty');
+    });
+
+  });
+
+  describe('testing updateCow()', () => {
+    it('should return a kitty thinking hi', () => {
+      let example = '\n' + cowsay.think({text: 'hi', f: this.cowsayCtrl.currentCow});
+      let result = this.cowsayCtrl.updateCow('hi');
+      expect(result).toEqual(example);
+    });
 
   });
 
