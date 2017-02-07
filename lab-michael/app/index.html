@@ -5,20 +5,33 @@
   </head>
 
   <body>
-    <section ng-controller="CowsayController as cowsayCtrl">
-    <h1> {{cowsayCtrl.title}} </h1>
-      <input type="text" ng-model="cowsayCtrl.text">
-      <button ng-click="cowsayCtrl.helloClick(cowsayCtrl.text)"> click me for spam </button>
+    <!-- <div class="form-data" ng-controller="CowsayController as cowsayCtrl"> -->
+    <section ng-controller="CowsayController as cowsayCtrl" ng-init="cowsayCtrl.current='dragon'">
+    <h1>{{cowsayCtrl.title}}</h1>
+    <form ng-submit="cowsayCtrl.speak(cowsayCtrl.text)"
+    novalidate
+    name="cowsayForm">
+    <label>Type Something Here!</label>
+    <input type="text" ng-model="cowsayCtrl.text">
+    <select ng-model="cowsayCtrl.current">
+      <option ng-repeat="cow in cowsayCtrl.cows" value="{{cow}}">
+        {{cow}}
+      </option>
+    </select>
+    <button type="submit"class ="row">Submit</button>
+    <button type="button" ng-click="cowsayCtrl.undo()"class="row">Undo Submit</button>
+  </form>
+<!-- </div> -->
+  <pre>
+    {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
+  </pre>
 
-      <pre>
-         {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
-      </pre>
-    </section>
+  <pre class="history" ng-show="cowsayCtrl.history">
+    <!-- {{cowsayCtrl.speak(history.last)}} -->
+    {{cowsayCtrl.history.last}}
+    {{cowsayCtrl.spoken}}
 
-    <section ng-controller="CowsayController as cowsayCtrl">
-    <h1> {{cowsayCtrl.title}} </h1>
-      <input type="text" ng-model="cowsayCtrl.coolbeans">
-      <p> {{cowsayCtrl.coolbeans}} </p>
-    </section>
+  </pre>
+</section>
   </body>
 </html>

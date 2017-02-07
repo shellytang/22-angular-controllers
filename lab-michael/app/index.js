@@ -13,12 +13,30 @@ cowsayDemoApp.controller('CowsayController', [ '$log', CowsayController]);
 
 function CowsayController($log) {
   $log.debug('init CowsayController');
-  this.title = 'Moooooo';
+  this.title = 'Welcome to CowTown';
+  this.history = [];
+
+  cowsay.list((err, cows) => {
+    this.cows = cows;
+    this.current = this.cows[0];
+  });
+
+
   this.updateCow = function(input) {
-    return '\n' + cowsay.say({text: input || 'Eat Mor Chikin'});
+    $log.debug('this.update()');
+    return '\n' + cowsay.say({text: input || 'Eat Mor Chikin', f: this.current});
   };
 
-  this.helloClick = function(input){
-    $log.log(input);
+  this.speak = function(input) {
+    $log.debug('cowsayCtrl.speak()');
+    this.spoken = this.updateCow(input);
+    this.history.push(this.spoken);
   };
+
+  this.undo = function() {
+    $log.debug('cowsayCtrl.undo()');
+    this.history.pop();
+    this.spoken = this.history.pop() || '';
+  };
+
 }
