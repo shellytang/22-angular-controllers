@@ -8,6 +8,15 @@ body {
   background-color: $brown;
 }
 
+pre {
+  text-align: center;
+}
+
+.interface {
+  float: right;
+  padding: 2em;
+  clear: both;
+}
 
 .header {
   text-align: center;

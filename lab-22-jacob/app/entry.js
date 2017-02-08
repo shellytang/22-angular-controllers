@@ -31,12 +31,8 @@ function CowsayController($log) { //angular is taking care of dependency injecti
     self.history.push(statement);
     return self.history;
   };
+
   self.undo = function() {
-    this.history.pop()
+    this.history.pop();
   };
-};
-
-
-self.displayAnimal = function(animal) {
-  return'\n' + cowsay.say({text: this.text, f: animal});
-};
+}
