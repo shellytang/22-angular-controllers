@@ -1,0 +1,36 @@
+// @import "reset" - this is like a css require
+
+$black: #000000;
+$brown: #BC8F8F;
+
+body {
+  color: $black;
+  background-color: $brown;
+}
+
+pre {
+  text-align: center;
+}
+
+.interface {
+  float: right;
+  padding: 2em;
+  clear: both;
+}
+
+.header {
+  text-align: center;
+}
+
+.history {
+  display: inline-block;
+  padding: 1em;
+  max-width: 100%;
+}
+
+
+#viewCow {
+  border-style: groove;
+  position: relative;
+  max-width: 40%
+}

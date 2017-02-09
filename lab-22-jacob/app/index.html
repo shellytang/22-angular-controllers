@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+  <head>
+  <title>Cows Say the Darndest Things</title>
+  </head>
+  <body>
+    <h1 class = "header">Cows say the Darndest Things</h1>
+    <section ng-controller="CowsayController as cowsayCtrl">
+      <form class = "interface">
+        <label for="dropdown">SELECT A COWFILE</label>
+        <select ng-model = "cowsayCtrl.currentCow" name="dropdown" id="dropdown">
+          <option ng-repeat="cowfile in cowsayCtrl.list" value ="{{cowfile}}">{{cowfile}}</option>
+        </select>
+      </form>
+      <button ng-click="cowsayCtrl.undo()" ng-model="cowsayCtrl.history" class="interface">REMOVE LAST COWFILE</button>
+      <form ng-submit = "cowsayCtrl.submit(cowsayCtrl.text)" class = "interface">
+        You animal Sez:
+      <input type="text" ng-model="cowsayCtrl.text">
+      <input type="submit" id="submit" value="SAVE TO HISTORY">
+    </form>
+    <div ng-model="cowsayCtrl.text">
+      <h3>PREVIEW</h3>
+      <div ng-hide="cowsayCtrl.text">
+        Nuthin' to show
+      </div>
+      <pre id = "viewCow" ng-show="cowsayCtrl.text">
+        {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
+      </pre>
+      <br />
+      <h1 id = "historyHead">HERE IS YOUR COWFILE HISTORY</h1>
+      <hr>
+      <div class = "history" ng-repeat="animal in cowsayCtrl.history track by $index" value="{{animal}}">
+      <pre ng-show="cowsayCtrl.history">
+        {{animal}}
+      </pre>
+    </div>
+    </div>
+  </section>
+  <script type="text/javascript" src="bundle.js"></script>
+</body>
+</html>
