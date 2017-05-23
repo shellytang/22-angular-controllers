@@ -1,4 +1,4 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Lab 21 - Angular Controllers
+![cf](https://i.imgur.com/7v5ASc8.png) Lab 22 - Angular Controllers
 ======
 
 ## To Submit this Assignment
@@ -31,3 +31,6 @@
       * hint: `cowsay.list((err, list) => {})`
   * when a `cowsay` filename is selected from the menu, have the first `pre` tag use the selected cowfile
   * use the `ng-show` directive to show the second `pre` tag **only** if the history state is not empty
+  * create your own styleguide for the application, using SCSS.
+    * make good use of css variables for all of your base (repeatable) styles
+    * include at least one mix-in
