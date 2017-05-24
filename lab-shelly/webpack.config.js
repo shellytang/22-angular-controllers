@@ -20,12 +20,12 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.scss$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: ['babel-loader'],
       },
       {
-        test: /\.(eot|woff|tff|svg).*/,
+        test: /\.(eot|woff|ttf|svg).*/,
         loader: 'url?limit=10000&name=fonts/[hash].[ext]',
       },
     ],

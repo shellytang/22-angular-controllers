@@ -1,0 +1,125 @@
+// :::: $vars ::::
+
+$brand-primary: #D7DCDD;
+$brand-secondary: #C4000D;
+$btn-primary: $brand-secondary *1;
+$btn-hover: $brand-primary/2;
+$black: #000;
+$white: #fff;
+$box-std: 50%;
+$gutter-std: 5%;
+$gutter-sm: $gutter-std / 2;
+$pre-primary: #1D3557;
+
+// :::: global styles ::::
+
+body {
+  font-family: helvetica;
+  font-size: 2vw;
+  background: $brand-primary;
+}
+
+h2 {
+  color: $brand-primary/3;
+  font-size: 3vw;
+  text-align: center;
+}
+
+button {
+  font-size: .6em;
+  width: $box-std/3;
+  padding: 1% 0;
+  background: $btn-primary;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 350ms all;
+  margin-bottom: 20px;
+
+  &:hover {
+    background: $btn-hover;
+  }
+}
+
+input[type="text"] {
+  font-size: .6em;
+  width: $box-std/2;
+  margin-right: $gutter-std / 2;
+  padding: 1%;
+  border: none;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+pre {
+  color: $pre-primary;
+  font-family: monospace;
+  width: $box-std;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+// :::: app styles ::::
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.undoBtn {
+  width: $box-std/3;
+  margin-left: 50%;
+  margin-bottom: $gutter-std;
+}
+
+.text-binder {
+  height: 15vw;
+  font-size: 3vw;
+  margin: $gutter-std;
+  padding: 1vw;
+  color: $white;
+  background: $brand-primary/3;
+  border: dotted .25vw $brand-primary;
+
+  + input {
+    width: 100%;
+  }
+}
+
+form {
+  // outline: 2px solid black;
+  width: 100%;
+  margin: 0 auto;
+}
+
+select {
+  display: inline-block;
+  height: 2.5em;
+  font-size: .6em;
+  width: $box-std/2;
+  margin-left: $gutter-std;
+  margin-right: $gutter-std;
+}
+
+header {
+  nav {
+      text-align: right;
+      margin-right: 20px;
+      margin-top: 15px;
+
+    li {
+      display: inline-block;
+      padding: 8px;
+      a {
+        color: $brand-secondary;
+        text-decoration: none;
+
+        &:hover {
+          color: $brand-secondary * 2;
+        }
+      }
+
+    }
+  }
+}

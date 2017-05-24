@@ -17,11 +17,12 @@
 
     <main>
       <section
+        class="container"
         ng-controller="CowsayController as cowsayCtrl"
         ng-init="cowsayCtrl.current = 'squirrel'">
         <h2>{{ cowsayCtrl.title }}</h2>
 
-        <pre>
+        <pre class="cow">
           {{ cowsayCtrl.update(cowsayCtrl.text) }}
         </pre>
 
@@ -29,6 +30,7 @@
           ng-submit="cowsayCtrl.speak(cowsayCtrl.text)"
           name="cowsayForm"
           novalidate>
+
           <select name="cowOptions" ng-model="cowsayCtrl.current">
             <option ng-repeat="cow in cowsayCtrl.cowfiles" value="{{ cow }}">{{ cow }}</option>
           </select>
@@ -40,9 +42,8 @@
             <pre>
               {{ cowsayCtrl.spoken }}
             </pre>
-            <button type="button" name="undo" ng-click="cowsayCtrl.undo()">Undo!</button>
+            <button type="button" name="undo" class="undoBtn" ng-click="cowsayCtrl.undo()">Undo!</button>
           </div>
-
         </form>
 
       </section>
