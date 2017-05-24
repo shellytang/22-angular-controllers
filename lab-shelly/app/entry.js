@@ -12,8 +12,6 @@ cowsayApp.controller('CowsayController', ['$log', CowsayController]);
 function CowsayController($log) {
   $log.debug('#CowsayController');
 
-  $log.log('what is this?', this);
-
   this.title = 'Welcome to Cowville!';
   this.history = [];
 
