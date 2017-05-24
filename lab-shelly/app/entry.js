@@ -1,7 +1,7 @@
 'use strict';
 
-require('./scss/reset.css');
-require('./scss/main.scss');
+// require('./scss/reset.css');
+// require('./scss/main.scss');
 
 const angular = require('angular');
 const cowsay = require('cowsay-browser');
@@ -31,15 +31,15 @@ function CowsayController($log) {
     $log.debug('#speak');
     this.spoken = this.update(input);
     this.history.push(this.spoken);
+    console.log('thehistory', this.history);
   };
 
   this.undo = function() {
     $log.debug('#undo');
-    let temp = this.history.pop();
-    this.spoken = temp || '';
+    this.history.pop();
+    this.spoken = this.history.pop() || '';
   };
 }
-
 
 cowsayApp.controller('NavigationController', ['$log', NavigationController]);
 
