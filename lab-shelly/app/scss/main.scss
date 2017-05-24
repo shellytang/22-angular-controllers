@@ -4,6 +4,7 @@ $brand-primary: #D7DCDD;
 $brand-secondary: #C4000D;
 $btn-primary: $brand-secondary *1;
 $btn-hover: $brand-primary/2;
+$btn-border-radius: 7px;
 $black: #000;
 $white: #fff;
 $box-std: 50%;
@@ -11,15 +12,30 @@ $gutter-std: 5%;
 $gutter-sm: $gutter-std / 2;
 $pre-primary: #1D3557;
 
-// :::: global styles ::::
+// ::: mixins :::
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+// :::: global styles ::::
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
+  // min-height: 100%;
+  margin: 0 0 100px;
   font-family: helvetica;
   font-size: 2vw;
   background: $brand-primary;
 }
 
 h2 {
+  padding: $gutter-std;
   color: $brand-primary/3;
   font-size: 3vw;
   text-align: center;
@@ -32,10 +48,10 @@ button {
   background: $btn-primary;
   color: #fff;
   border: none;
-  border-radius: 7px;
   cursor: pointer;
   transition: 350ms all;
   margin-bottom: 20px;
+  @include border-radius($btn-border-radius);
 
   &:hover {
     background: $btn-hover;
@@ -48,16 +64,19 @@ input[type="text"] {
   margin-right: $gutter-std / 2;
   padding: 1%;
   border: none;
-  border-radius: 3px;
   display: inline-block;
+  @include border-radius(3px);
 }
 
 pre {
   color: $pre-primary;
   font-family: monospace;
-  width: $box-std;
+  width: $box-std *2;
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  text-align: center;
 }
 
 // :::: app styles ::::
@@ -88,7 +107,6 @@ pre {
 }
 
 form {
-  // outline: 2px solid black;
   width: 100%;
   margin: 0 auto;
 }
@@ -103,14 +121,18 @@ select {
 }
 
 header {
+  width: 100%;
+  background-color: $brand-primary/3;
+  height: 4em;
+
   nav {
       text-align: right;
-      margin-right: 20px;
-      margin-top: 15px;
+      padding: .8em;
 
     li {
       display: inline-block;
-      padding: 8px;
+      padding: 1em;
+
       a {
         color: $brand-secondary;
         text-decoration: none;
@@ -119,7 +141,17 @@ header {
           color: $brand-secondary * 2;
         }
       }
-
     }
   }
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  height: 4em;
+  position: absolute;
+  background: $brand-primary/3;
+  margin-top: 30px;
 }
